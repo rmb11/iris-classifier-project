@@ -8,7 +8,23 @@ For this project I’ll be building a data-driven Django web application using t
 
 ## Model Research and Justification
 
-I chose the Iris dataset for this project because it is a simple and well-known multi-class classification problem. The model will take four numeric inputs (sepal length, sepal width, petal length and petal width) and predict which Iris species the flower belongs to (for example setosa, versicolor or virginica). It’s commonly used in student projects as it is small, accurate, fast to train and easy to explain.
+I chose the Iris dataset for this project because it is a simple and well known multi-class classification problem that is small, fast to train and easy to explain. The model will use four numeric inputs (sepal length, sepal width, petal length and petal width) to predict the Iris species (setosa, versicolor or virginica). 
+
+- **Problem & Dataset Source**  
+  - Predict species using numeric measurements.  
+  - Dataset from the UCI Machine Learning Repository https://archive.ics.uci.edu/dataset/53/iris
+
+- **Chosen Algorithm**  
+  - Likely Logistic Regression or similar due to simplicity and suitability for structured numeric data.
+
+- **Strengths**  
+  - Lightweight, high accuracy, interpretable, low computational cost.
+
+- **Limitations**  
+  - Not suited to complex datasets or larger-scale real-world systems.
+
+- **Model Versioning Plan**  
+  - Model will be saved using `joblib` and versioned separately so previous files are retained.
 
 ---
 

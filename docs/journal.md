@@ -12,3 +12,8 @@
 - Cloned the repository and set up the virtual environment.
 - Installed Django and created the project (`config`) and app (`classifier`).
 - Implemented the required folder structure (ml, api, logs, docs) including template file.
+- Updated README with project overview, MVP and folder structure.
+- Completed first commit and pushed changes to GitHub.
+- Removed previously created GitHub issues as they did not follow the specified issue template.
+- Created Issue 8.1 using the correct structure provided in the assessment documentation.
+- Added detailed Model Research and Justification section to the README.

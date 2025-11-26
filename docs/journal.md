@@ -17,3 +17,11 @@
 - Removed previously created GitHub issues as they did not follow the specified issue template.
 - Created Issue 8.1 using the correct structure provided in the assessment documentation.
 - Added detailed Model Research and Justification section to the README.
+
+## Tuesday, 25/11/2025 – Data Ingestion & Streamlit Integration
+- Began Stage 8.2 - Data Ingestion and Preparation.
+- Created `streamlit_app.py` in the project root and connected it to the placeholder `predict()` function in `ml/predict.py`.
+- Added number input fields for sepal length, sepal width, petal length and petal width using Streamlit’s built-in validation.
+- Tested inputs and confirmed values were successfully passed into `predict()` during runtime.
+- Reviewed teacher’s Streamlit example and adapted it for a local prediction setup (no API or file upload required).
+- Confirmed end to end flow works correctly. 

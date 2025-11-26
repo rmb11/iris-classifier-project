@@ -43,6 +43,17 @@ The MVP for this project will meet these goals:
 
 ---
 
+## Progress Update – 25/11/2025
+
+- Began development of Stage **8.2 – Data Ingestion and Preparation**.
+- Implemented a basic Streamlit interface to collect four Iris flower measurements.
+- Connected input values directly to the placeholder `predict()` function in `ml/predict.py`.
+- Used Streamlit number inputs to check valid numeric input.
+- Confirmed successful end-to-end flow. 
+- Prediction currently uses placeholder logic and will be replaced with a trained model under **Stage 8.3**.
+
+---
+
 ## Project Folder Structure
 
 The project folder structure follows the required layout from the assessment:

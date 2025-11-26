@@ -46,13 +46,24 @@ petal_width = streamlit.number_input(
 )
 
 if streamlit.button("Predict"):
-    try:
-        prediction = predict(
-            sepal_length=sepal_length,
-            sepal_width=sepal_width,
-            petal_length=petal_length,
-            petal_width=petal_width,
+    # Extra validation to block any zero values (not realistic for Iris measurements)
+    if (
+        sepal_length == 0.0
+        or sepal_width == 0.0
+        or petal_length == 0.0
+        or petal_width == 0.0
+    ):
+        streamlit.warning(
+            "Please enter realistic measurements. None of the values should be zero."
         )
-        streamlit.success(f"Prediction: {prediction}")
-    except Exception as exc:
-        streamlit.error(f"Something went wrong while predicting: {exc}")
+    else:
+        try:
+            prediction = predict(
+                sepal_length=sepal_length,
+                sepal_width=sepal_width,
+                petal_length=petal_length,
+                petal_width=petal_width,
+            )
+            streamlit.success(f"Prediction: {prediction}")
+        except Exception as exc:
+            streamlit.error(f"Something went wrong while predicting: {exc}")

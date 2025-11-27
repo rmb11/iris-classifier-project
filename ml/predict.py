@@ -1,14 +1,22 @@
 """
 Prediction utilities for the Iris classifier.
 
-This is a simple placeholder to test Streamlit 
-before loading the real trained model from a joblib file.
+Loads trained model from 'iris_model.joblib' and uses it to make predictions.
 """
 
+import joblib
+import numpy as np
 from typing import Literal
+from pathlib import Path
 
-# Defining the three specific allowed output classes
+# Define the allowed output classes
 IrisClass = Literal["setosa", "versicolor", "virginica"]
+
+# Path to the saved model
+MODEL_PATH = Path(__file__).with_name("iris_model.joblib")
+
+# Load model once at import time
+_model = joblib.load(MODEL_PATH)
 
 def predict(
     sepal_length: float,
@@ -17,24 +25,23 @@ def predict(
     petal_width: float,
 ) -> IrisClass:
     """
-    Placeholder model for Iris classification.
-    
-    Uses basic conditional logic (petal dimensions) to simulate a 
-    prediction for testing the application flow.
-    
+    Use the trained ML model to predict the Iris species.
+
     Args:
-        sepal_length (float): Length of the sepal in cm.
-        sepal_width (float): Width of the sepal in cm.
-        petal_length (float): Length of the petal in cm.
-        petal_width (float): Width of the petal in cm.
-        
+        sepal_length (float)
+        sepal_width (float)
+        petal_length (float)
+        petal_width (float)
+
     Returns:
-        IrisClass: The predicted species ("setosa", "versicolor", or "virginica").
+        IrisClass: one of "setosa", "versicolor", "virginica"
     """
-    # Simple logic-based "prediction" using petal measurements
-    if petal_length < 2.5:
-        return "setosa"
-    elif petal_width < 1.8:
-        return "versicolor"
-    else:
-        return "virginica"
+    # Prepare a new sample for prediction
+    sample = np.array([[sepal_length, sepal_width, petal_length, petal_width]])
+
+    # Predict using the trained model
+    prediction_numeric = _model.predict(sample)[0]
+
+    # Convert numeric prediction (0,1,2) to string label
+    class_names = ["setosa", "versicolor", "virginica"]
+    return class_names[prediction_numeric]

@@ -25,3 +25,11 @@
 - Tested inputs and confirmed values were successfully passed into `predict()` during runtime.
 - Reviewed teacher’s Streamlit example and adapted it for a local prediction setup (no API or file upload required).
 - Confirmed end to end flow works correctly. 
+
+## Wednesday, 26/11/2025 – Model Training & Integration
+- Completed Stage 8.3 (Model Training and Serialisation).
+- Installed scikit-learn and trained a Logistic Regression model using the Iris dataset via a separate training script.
+- Exported the trained model using joblib and saved it as `iris_model.joblib` in the `ml/` folder.
+- Updated `predict()` to import and load trained model instead of using placeholder logic.
+- Tested end to end prediction in Streamlit using the real model.
+- Realised that all changes need to go through PRs for teacher review instead of direct commits. Will use PR's from now on.

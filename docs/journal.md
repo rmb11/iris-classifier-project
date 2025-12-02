@@ -32,4 +32,6 @@
 - Exported the trained model using joblib and saved it as `iris_model.joblib` in the `ml/` folder.
 - Updated `predict()` to import and load trained model instead of using placeholder logic.
 - Tested end to end prediction in Streamlit using the real model.
-- Realised that all changes need to go through PRs for teacher review instead of direct commits. Will use PR's from now on.
+
+## Tuesday, 02/12/2025 - Adding Issue
+- Added in Issue 8.5 Add Testing and Logging, missed this step in initial documentation. 

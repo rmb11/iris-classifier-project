@@ -37,15 +37,22 @@
 - Began deployment steps last week but then paused them to follow milestones in the correct order.
 - Added Issue 8.5 Add Testing and Logging which was missed in the initial documentation. 
 
-# Wednesday, 03/12/2025 - Branch Cleanup
+## Wednesday, 03/12/2025 - Branch Cleanup
 - Spent time reviewing Django class notes and documentation to prepare for the next milestones. 
 - Created a few test branches today to experiment with logging and views.
 - Deleted the unused test branches to keep the repository clean and easier to manage.
 
-# Thursday, 04/12/2025 - Connecting Django API with Streamlit
+## Thursday, 04/12/2025 - Connecting Django API with Streamlit
 - Added the /api/predict/ endpoint and view to handle POST requests and call the ML predict() function.
 - Updated Streamlit to send the four iris values to Django using requests.post().
 - Tested the full flow in Streamlit and confirmed the prediction shows correctly.
 - Verified the API separately using curl which returned {"prediction": "setosa"}.
 - Learned how Django processes JSON in POST requests and why @csrf_exempt is needed for external clients.
 - Created the PR for Issue 8.4 after everything worked end-to-end.
+
+## Thursday, 04/12/2025 – CI/CD Setup and Fixes
+- Added the teacher’s GitHub Actions workflow file.
+- Created a simple test and renamed the test file so CI could detect it.
+- Committed the iris_model.joblib file to fix the failing workflow.
+- Pushed the branch, opened a PR and confirmed the workflow passed.
+- Merged the PR and closed the CI/CD issue.

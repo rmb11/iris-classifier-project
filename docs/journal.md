@@ -23,7 +23,7 @@
 - Created `streamlit_app.py` in the project root and connected it to the placeholder `predict()` function in `ml/predict.py`.
 - Added number input fields for sepal length, sepal width, petal length and petal width using Streamlit’s built-in validation.
 - Tested inputs and confirmed values were successfully passed into `predict()` during runtime.
-- Reviewed teacher’s Streamlit example and adapted it for a local prediction setup (no API or file upload required).
+- Reviewed teacher’s Streamlit example and adapted it.
 - Confirmed end to end flow works correctly. 
 
 ## Wednesday, 26/11/2025 – Model Training & Integration
@@ -34,4 +34,10 @@
 - Tested end to end prediction in Streamlit using the real model.
 
 ## Tuesday, 02/12/2025 - Adding Issue
-- Added in Issue 8.5 Add Testing and Logging, missed this step in initial documentation. 
+- Began deployment steps last week but then paused them to follow milestones in the correct order.
+- Added Issue 8.5 Add Testing and Logging which was missed in the initial documentation. 
+
+# Wednesday, 03/12/2025 - Branch Cleanup
+- Spent time reviewing Django class notes and documentation to prepare for the next milestones. 
+- Created a few test branches today to experiment with logging and views.
+- Deleted the unused test branches to keep the repository clean and easier to manage.

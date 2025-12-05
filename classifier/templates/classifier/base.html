@@ -1,0 +1,40 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" type="text/css" href="{% static 'classifier/styles.css' %}">
+{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name">
+        <a href="{% url 'home' %}">🌸 Iris Classifier</a>
+    </h1>
+{% endblock %}
+
+{% block nav-sidebar %}{% endblock %}
+{% block nav-global %}{% endblock %}
+
+{% block content %}
+    <header>
+        <div style="float: right; margin-bottom: 15px; font-weight: bold;">
+            {% if user.is_authenticated %}
+                Welcome, <strong>{{ user.username }}</strong>
+                <form action="{% url 'logout' %}" method="post" style="display:inline; margin-left: 8px;">
+                    {% csrf_token %}
+                    <button type="submit" style="background:none;border:none;color:#447e9b;cursor:pointer;padding:0;">
+                        Logout
+                    </button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+
+        </div>
+        <div style="clear: both;"></div>
+    </header>
+
+    <div id="content-main">
+        {# Each page (home, dashboard, etc.) will override this #}
+        {% block page_content %}{% endblock %}
+    </div>
+{% endblock %}

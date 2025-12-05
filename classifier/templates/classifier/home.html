@@ -1,0 +1,22 @@
+{% extends "classifier/base.html" %}
+
+{% block page_content %}
+    <h1>Welcome to the Iris Classifier</h1>
+
+    {% if user.is_authenticated %}
+        <p>You are logged in as <strong>{{ user.username }}</strong>.</p>
+    {% else %}
+        <p>You are not logged in yet.</p>
+        <p>Please use the Login link at the top-right to sign in.</p>
+        <hr>
+    {% endif %}
+
+    <p>
+        You can launch the Iris Classifier interface using Streamlit.
+    </p>
+    <p>
+        <a href="http://127.0.0.1:8501" target="_blank">
+            Open Iris Classifier UI
+        </a>
+    </p>
+{% endblock %}

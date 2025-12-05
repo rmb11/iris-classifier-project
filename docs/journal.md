@@ -64,3 +64,10 @@
 - Removed the unused dashboard to simplify the flow.
 - Tested login, logout and staff access. Learned how Django handles redirects and permission decorators.
 - Main challenge was figuring out the best login flow as the original redirect to Streamlit didn’t feel natural so I adjusted it.
+
+## Friday, 05/12/2025 – Testing + Logging (Milestone 8.5)
+- Added simple tests in tests.py to confirm the prediction view works.
+- Created a basic logging decorator to record inputs, outputs and errors.
+- Applied it to predict_api so predictions go to logs/app.log.
+- Tested predictions through Streamlit and confirmed logs update correctly.
+- Checked invalid inputs to make sure errors are handled safely.

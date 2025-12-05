@@ -40,5 +40,10 @@
                 <label>&nbsp;</label><input type="submit" value="{% translate 'Log in' %}">
             </div>
         </form>
+
+        <p style="margin-top: 15px;">
+            Don't have an account?
+            <a href="{% url 'register' %}">Sign up</a>
+        </p>
     </div>
 {% endblock %}

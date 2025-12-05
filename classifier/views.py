@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from classifier.services.logging import action_logger
 from django.shortcuts import render, redirect
 from ml.predict import predict
 
@@ -28,6 +29,7 @@ def logs_view(request):
     return JsonResponse({"message": "Staff can access logs here."})
 
 @csrf_exempt
+@action_logger
 def predict_api(request):
     # This API only works with POST
     if request.method != "POST":

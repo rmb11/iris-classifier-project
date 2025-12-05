@@ -2,7 +2,12 @@ import json
 
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotAllowed
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.admin.views.decorators import staff_member_required
 from ml.predict import predict
+
+@staff_member_required
+def logs_view(request):
+    return JsonResponse({"message": "Staff can access logs here."})
 
 @csrf_exempt
 def predict_api(request):

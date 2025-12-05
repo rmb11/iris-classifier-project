@@ -71,3 +71,5 @@
 - Applied it to predict_api so predictions go to logs/app.log.
 - Tested predictions through Streamlit and confirmed logs update correctly.
 - Checked invalid inputs to make sure errors are handled safely.
+- Updated settings to use environment variables and tested locally.
+- Everything still runs normally and is ready for VM deployment.

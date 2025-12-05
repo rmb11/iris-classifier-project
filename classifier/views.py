@@ -7,6 +7,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from ml.predict import predict
 
+
+def home(request):
+    return redirect("login")
+
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)

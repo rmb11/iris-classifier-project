@@ -3,13 +3,14 @@ import json
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotAllowed
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from ml.predict import predict
 
-
+@login_required
 def home(request):
-    return redirect("login")
+    return render(request, "classifier/home.html")
 
 def register(request):
     if request.method == "POST":

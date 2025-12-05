@@ -56,3 +56,11 @@
 - Committed the iris_model.joblib file to fix the failing workflow.
 - Pushed the branch, opened a PR and confirmed the workflow passed.
 - Merged the PR and closed the CI/CD issue.
+
+## Friday, 05/12/2025 – Authentication + Permissions Setup
+- Set up login, logout and signup using Django’s built-in auth.
+- Updated base.html to show the logged-in user and a working Logout button.
+- Protected the home page with @login_required and made /logs/ staff-only.
+- Removed the unused dashboard to simplify the flow.
+- Tested login, logout and staff access. Learned how Django handles redirects and permission decorators.
+- Main challenge was figuring out the best login flow as the original redirect to Streamlit didn’t feel natural so I adjusted it.

@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from classifier.services.logging import action_logger
 from django.shortcuts import render, redirect
+from .models import PredictionMetadata
 from ml.predict import predict
 
 @login_required
@@ -63,5 +64,13 @@ def predict_api(request):
         float(petal_width),
     )
 
+    PredictionMetadata.objects.create(
+        file_name="ml/models/iris_model_v1.joblib",
+        user=request.user if request.user.is_authenticated else None,
+        model_version="v1",
+        result=prediction,
+        metrics="", 
+    )
+    
     # Send the prediction back to Streamlit as JSON.
     return JsonResponse({"prediction": prediction})

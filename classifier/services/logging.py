@@ -1,4 +1,8 @@
 import logging
+import os
+
+# Make sure the logs folder exists (both locally & on CI/VM)
+os.makedirs("logs", exist_ok=True)
 
 logging.basicConfig(
     filename="logs/app.log",

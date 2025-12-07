@@ -65,7 +65,7 @@
 - Tested login, logout and staff access. Learned how Django handles redirects and permission decorators.
 - Main challenge was figuring out the best login flow as the original redirect to Streamlit didn’t feel natural so I adjusted it.
 
-## Friday, 05/12/2025 – Testing + Logging (Milestone 8.5)
+## Friday, 05/12/2025 – Testing + Logging
 - Added simple tests in tests.py to confirm the prediction view works.
 - Created a basic logging decorator to record inputs, outputs and errors.
 - Applied it to predict_api so predictions go to logs/app.log.
@@ -73,8 +73,14 @@
 - Checked invalid inputs to make sure errors are handled safely.
 
 ## Saturday, 06/12/2025 – Prediction Metadata
-
 - Added a database model to store prediction metadata.
 - Updated prediction view to save a record for each prediction.
 - Registered the model in the Django admin panel.
 - Tested predictions through Streamlit and confirmed metadata saves correctly.
+
+## Sunday, 07/12/2025 – Model Optimisation
+- Evaluated the existing LogisticRegression model using an 80/20 train/test split.
+- Tried a RandomForest model to see if prediction accuracy could be improved.
+- Compared both models on the same test data.
+- Found that both achieved the same accuracy so kept the simpler LogisticRegression model.
+- Confirmed the final model was ready to be used in deployment.

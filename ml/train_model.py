@@ -1,12 +1,12 @@
 """
-Train a simple Iris classification model and save it to disk.
+Train a simple Iris classification model.
 
-This script is for Stage 8.3 (Model Training, Serialisation and Versioning).
 It uses scikit-learn's built-in Iris dataset and Logistic Regression.
 """
 
 from sklearn.datasets import load_iris
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 import joblib
 from pathlib import Path
@@ -27,13 +27,30 @@ def main() -> None:
     model = LogisticRegression(max_iter=200)
     model.fit(X_train, y_train)
 
-    # Print simple accuracy for understanding
     accuracy = model.score(X_test, y_test)
-    print(f"Test accuracy: {accuracy:.3f}")
+    print(f"LogisticRegression accuracy: {accuracy:.3f}")
+    
+    # Optimisation - trying RandomForest
+    rf_model = RandomForestClassifier(
+        n_estimators=100,
+        random_state=42,
+    )
+    rf_model.fit(X_train, y_train)
+
+    rf_accuracy = rf_model.score(X_test, y_test)
+    print(f"RandomForest accuracy: {rf_accuracy:.3f}")
+    
+    # Pick the better model
+    if rf_accuracy > accuracy:
+        best_model = rf_model
+        print("Using RandomForest as the optimised model.")
+    else:
+        best_model = model
+        print("Keeping LogisticRegression as performance was equal or better.")
 
     # Save the trained model to the ml/ folder
     model_path = Path(__file__).with_name("iris_model.joblib")
-    joblib.dump(model, model_path)
+    joblib.dump(best_model, model_path)
     print(f"Saved model to: {model_path}")
 
 

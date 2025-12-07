@@ -71,3 +71,10 @@
 - Applied it to predict_api so predictions go to logs/app.log.
 - Tested predictions through Streamlit and confirmed logs update correctly.
 - Checked invalid inputs to make sure errors are handled safely.
+
+## Saturday, 06/12/2025 – Prediction Metadata
+
+- Added a database model to store prediction metadata.
+- Updated prediction view to save a record for each prediction.
+- Registered the model in the Django admin panel.
+- Tested predictions through Streamlit and confirmed metadata saves correctly.

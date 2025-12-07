@@ -7,3 +7,5 @@ db.sqlite3
 
 # Log files
 logs/*.log
+
+.coverage

@@ -1,6 +1,5 @@
 """
 Train a simple Iris classification model.
-
 It uses scikit-learn's built-in Iris dataset and Logistic Regression.
 """
 
@@ -13,6 +12,10 @@ from pathlib import Path
 
 
 def main() -> None:
+    """
+    Trains and evaluates two simple ML models on the Iris dataset.
+    The best-performing model is saved using joblib for later use.
+    """
     # Load Iris dataset (from scikit-learn, originally from UCI)
     iris = load_iris()
     X = iris.data  # 4 input features

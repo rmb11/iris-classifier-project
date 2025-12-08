@@ -1,3 +1,10 @@
+"""
+Basic application logging utilities.
+
+Configures a file-based logger and provides a decorator
+used to record prediction inputs, outputs, and errors.
+"""
+
 import logging
 import os
 
@@ -11,6 +18,10 @@ logging.basicConfig(
 )
 
 def action_logger(func):
+    """
+    Decorator used to log request input, response output
+    and any errors raised by the wrapped view.
+    """
     def wrapper(request, *args, **kwargs):
         try:
             # Try reading JSON

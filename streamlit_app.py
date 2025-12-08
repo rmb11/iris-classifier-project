@@ -1,3 +1,8 @@
+"""
+Streamlit frontend for the Iris Classifier application.
+Collects user input and sends it to the Django API to receive predictions.
+"""
+
 import streamlit as streamlit
 import requests
 

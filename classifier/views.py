@@ -12,9 +12,11 @@ from ml.predict import predict
 
 @login_required
 def home(request):
+    """Main landing page shown after login."""
     return render(request, "classifier/home.html")
 
 def register(request):
+    """Simple registration view that lets a new user create an account."""
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -27,11 +29,16 @@ def register(request):
 
 @staff_member_required
 def logs_view(request):
+    """Basic placeholder view for staff-only access to logs."""
     return JsonResponse({"message": "Staff can access logs here."})
 
 @csrf_exempt
 @action_logger
 def predict_api(request):
+    """
+    API endpoint used by Streamlit to send iris values and receive a prediction.
+    Accepts POST requests with JSON data.
+    """
     # This API only works with POST
     if request.method != "POST":
         return HttpResponseNotAllowed(["POST"])

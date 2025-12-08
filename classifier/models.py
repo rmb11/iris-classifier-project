@@ -3,6 +3,10 @@ from django.db import models
 
 
 class PredictionMetadata(models.Model):
+    """
+    Stores metadata for each prediction, including
+    model details, user information, and results.
+    """
     file_name = models.CharField(max_length=255, blank=True)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,

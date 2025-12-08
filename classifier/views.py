@@ -1,5 +1,7 @@
 import json
+from pathlib import Path
 
+from django.conf import settings
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotAllowed
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.admin.views.decorators import staff_member_required
@@ -29,8 +31,23 @@ def register(request):
 
 @staff_member_required
 def logs_view(request):
-    """Basic placeholder view for staff-only access to logs."""
-    return JsonResponse({"message": "Staff can access logs here."})
+    """
+    Staff-only view that returns the last 50 lines of the logs/app.log file.
+    """
+    log_path = Path(settings.BASE_DIR) / "logs" / "app.log"
+
+    if not log_path.exists():
+        return JsonResponse({"logs": "Log file not found."}, status=404)
+
+    try:
+        with log_path.open("r", encoding="utf-8") as f:
+            lines = f.readlines()
+    except OSError as exc:
+        return JsonResponse({"logs": f"Error reading log file: {exc}"}, status=500)
+
+    last_lines = "".join(lines[-50:]) if lines else "Log file is empty."
+
+    return JsonResponse({"logs": last_lines})
 
 @csrf_exempt
 @action_logger
